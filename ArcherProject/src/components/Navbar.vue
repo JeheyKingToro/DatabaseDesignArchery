@@ -44,6 +44,41 @@
 
 
 </div> 
+<div>
+    <button v-if="!isAdmin" class="btn btn-outline-light btn-sm" @click="handleLogin">
+        Admin Login
+    </button>
+
+    <button v-if="isAdmin" class="btn btn-outline-warning btn-sm" @click="handleLogout">
+        Logout
+    </button>
+</div>
 </div> 
 </nav> 
 </template>
+
+<script setup>
+import { isAdmin, login, logout } from '../store.js'
+
+async function handleLogin() {
+    const username = prompt('Username:')
+    const password = prompt('Password:')
+    const response = await fetch('http://localhost/archery-api/api.php?action=login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+        })
+    const data = await response.json()
+    if (data.success) {
+        login()
+        alert('Logged in as admin')
+    } else {
+        alert(data.message)
+    }
+}
+
+function handleLogout() {
+    logout()
+    alert('Logged out')
+}
+</script>

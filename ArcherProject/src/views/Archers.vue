@@ -1,3 +1,4 @@
+
 <template>
 
     <div class="container mt-4">
@@ -58,7 +59,7 @@
                         <td>{{ archer.date_of_birth }}</td>
 
 
-                        <td>
+                        <td v-if="isAdmin">
 
                             <button class="btn btn-warning btn-sm me-2" @click="editArcher(archer)">
                                 Edit
@@ -82,7 +83,7 @@
 
         <!-- ADD ARCHER FORM -->
 
-        <div class="card p-4 mb-4">
+        <div class="card p-4 mb-4" v-if="isAdmin">
 
             <form @submit.prevent="submitArcher">
 
@@ -127,10 +128,8 @@
 
 <script setup>
 
-import {
-    ref,
-    onMounted
-} from 'vue'
+import {ref,onMounted} from 'vue'
+import {isAdmin} from '../store.js'
 
 const archers = ref([])
 const editing = ref(false)

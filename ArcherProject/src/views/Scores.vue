@@ -9,7 +9,7 @@
 
   <!-- FILTERS -->
 
-  <div class="card p-4 mb-4">
+  <div class="card p-4 mb-4" v-if="isAdmin">
 
     <h3 class="mb-3">
       Filters
@@ -134,7 +134,7 @@
 
   <!-- ADD SCORE FORM -->
 
-  <div class="card p-4 mb-4">
+  <div class="card p-4 mb-4" v-if="isAdmin">
 
     <h3 class="mb-3">
       Add New Score
@@ -311,11 +311,8 @@
 
 <script setup>
 
-import {
-  ref,
-  computed,
-  onMounted
-} from 'vue'
+import {ref,computed,onMounted} from 'vue'
+import { isAdmin } from '../store.js'
 
 /*
 ========================================
