@@ -35,13 +35,6 @@
   PB
 </router-link>
 
-<router-link
-  to="/recorder"
-  class="nav-link"
->
-  Recorder
-</router-link>
-
 
 </div> 
 <div>

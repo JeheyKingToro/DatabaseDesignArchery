@@ -6,7 +6,7 @@ import Competitions from '../views/Competitions.vue'
 import Rounds from '../views/Rounds.vue'
 import Records from '../views/Records.vue'
 import PB from '../views/PB.vue'
-import Recorder from '../views/Recorder.vue'
+
 
 const routes = [
     { path: '/', component: Home },
@@ -24,10 +24,7 @@ const routes = [
         component: PB
     },
 
-    {
-        path: '/recorder',
-        component: Recorder
-    }
+    
 
 
 ]

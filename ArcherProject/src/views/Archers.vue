@@ -30,7 +30,9 @@
 
 
                         <th>Date Of Birth</th>
-                        <th>Actions</th>
+                        <th v-if="isAdmin">
+                            Actions
+                        </th>
                     </tr>
 
                 </thead>
